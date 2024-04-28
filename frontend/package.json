@@ -20,21 +20,32 @@
 		"react"
 	],
 	"dependencies": {
+		"@radix-ui/react-dialog": "^1.0.5",
+		"@radix-ui/react-label": "^2.0.2",
+		"@radix-ui/react-slot": "^1.0.2",
 		"axios": "^1.6.8",
-		"flowbite": "^2.3.0",
+		"class-variance-authority": "^0.7.0",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.376.0",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.23.0",
-		"swr": "^2.2.5"
+		"swr": "^2.2.5",
+		"tailwind-merge": "^2.3.0",
+		"tailwindcss-animate": "^1.0.7"
 	},
 	"devDependencies": {
+		"@types/node": "^20.12.7",
 		"@types/react": "^18.2.15",
 		"@types/react-dom": "^18.2.7",
 		"@vitejs/plugin-react": "^4.0.3",
+		"autoprefixer": "^10.4.19",
 		"eslint": "^8.45.0",
 		"eslint-plugin-react": "^7.32.2",
 		"eslint-plugin-react-hooks": "^4.6.0",
 		"eslint-plugin-react-refresh": "^0.4.3",
+		"postcss": "^8.4.38",
+		"tailwindcss": "^3.4.3",
 		"vite": "^4.4.5"
 	}
 }

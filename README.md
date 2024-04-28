@@ -5,7 +5,7 @@
 # Database Diagram
 
 <p align='center'>
-<img style='width: 80%' src='/backend/public/assets/erd.jpg' alt='ERD' title='ERD'>
+<img style='width: 50%' src='/backend/public/assets/erd.jpg' alt='ERD' title='ERD'>
 </p>
 
 # Postman Docs
