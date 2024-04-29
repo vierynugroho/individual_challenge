@@ -61,7 +61,7 @@ const ProductList = () => {
 										className='py-3 px-6 text-center bg-red-700 text-white font-bold'
 										colSpan='4'
 									>
-										Data Kosong
+										Empty Product
 									</td>
 								</tr>
 							) : (
