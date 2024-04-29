@@ -4,6 +4,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
 import DeleteProduct from './DeleteProduct';
+import Profile from './Profile';
 
 const ProductList = () => {
 	const [data, setData] = useState(null);
@@ -22,15 +23,17 @@ const ProductList = () => {
 	return (
 		<div className='flex flex-col mt-5 container'>
 			<div className='w-full'>
-				<AddProduct />
-
+				<div className='flex'>
+					<AddProduct />
+					<Profile />
+				</div>
 				<div className='relative shadow rounded-lg mt-5'>
 					<table className='w-full text-sm text-left text-white'>
 						<thead className='text-xs text-white uppercase bg-black'>
 							<tr>
 								<th className='py-3 px-1 text-center'>No</th>
-								<th className='py-3 px-6'>Product Name</th>
-								<th className='py-3 px-6'>Price</th>
+								<th className='py-3 px-6 text-center'>Name</th>
+								<th className='py-3 px-6 text-center'>Price</th>
 								<th className='py-3 px-1 text-center'>Action</th>
 							</tr>
 						</thead>
