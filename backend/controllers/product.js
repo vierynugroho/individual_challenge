@@ -56,6 +56,11 @@ const getProduct = async (req, res, next) => {
 			},
 		});
 
+		if (!product) {
+			console.log('not found');
+			return next(createHttpError(404, { message: 'product not found' }));
+		}
+
 		res.status(200).json({
 			status: true,
 			message: 'product data retrieved successfully',
@@ -93,7 +98,7 @@ const createProduct = async (req, res, next) => {
 const updateProduct = async (req, res, next) => {
 	try {
 		if (isNaN(req.params.id)) {
-			next(createHttpError(400, { message: 'id is not a number' }));
+			return next(createHttpError(400, { message: 'id is not a number' }));
 		}
 
 		const { name, price } = req.body;
@@ -105,7 +110,7 @@ const updateProduct = async (req, res, next) => {
 		});
 
 		if (!product) {
-			next(createHttpError(404, { message: 'product not found' }));
+			return next(createHttpError(404, { message: 'product not found' }));
 		}
 
 		const productUpdated = await prisma.product.update({
@@ -124,6 +129,10 @@ const updateProduct = async (req, res, next) => {
 			data: productUpdated,
 		});
 	} catch (error) {
+		if (error.code === 'P2002') {
+			console.log('ERROR: product already exist');
+			next(createHttpError(422, { message: 'product already exist' }));
+		}
 		next(createHttpError(500, { message: error.message }));
 	}
 };
@@ -131,7 +140,7 @@ const updateProduct = async (req, res, next) => {
 const deleteProduct = async (req, res, next) => {
 	try {
 		if (isNaN(req.params.id)) {
-			next(createHttpError(400, { message: 'id is not a number' }));
+			return next(createHttpError(400, { message: 'id is not a number' }));
 		}
 
 		const product = await prisma.product.findUnique({
@@ -141,7 +150,7 @@ const deleteProduct = async (req, res, next) => {
 		});
 
 		if (!product) {
-			next(createHttpError(404, { message: 'product not found' }));
+			return next(createHttpError(404, { message: 'product not found' }));
 		}
 
 		await prisma.product.delete({
