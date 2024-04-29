@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
-const EditProduct = ({ productId }) => {
+const EditProduct = ({ productId, productName }) => {
 	const [name, setName] = useState('');
 	const [price, setPrice] = useState('');
 
@@ -65,7 +65,7 @@ const EditProduct = ({ productId }) => {
 					<DialogHeader>
 						<DialogTitle>Edit Product</DialogTitle>
 						<DialogDescription>
-							Make change for your <span className='font-bold size-2 text-red-700'>{name}</span>. Click save when you're done.
+							Make change for your <span className='font-bold size-2 text-red-700'>{productName}</span>. Click save when you're done.
 						</DialogDescription>
 					</DialogHeader>
 					<form

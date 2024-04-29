@@ -26,7 +26,7 @@ const DeleteProduct = ({ productId, productName }) => {
 						variant='outline'
 						className='bg-red-600 hover:bg-red-700 hover:text-white border border-slate-50 text-white font-bold py-2 px-4 rounded-lg'
 					>
-						<i class='fa-solid fa-trash'></i> &nbsp; Delete Product
+						<i className='fa-solid fa-trash'></i> &nbsp; Delete Product
 					</Button>
 				</DialogTrigger>
 				<DialogContent className='sm:max-w-[425px]'>
@@ -41,11 +41,11 @@ const DeleteProduct = ({ productId, productName }) => {
 							onClick={() => deleteProduct(productId)}
 							className='bg-red-700'
 						>
-							<i class='fa-solid fa-check'></i> &nbsp; Delete
+							<i className='fa-solid fa-check'></i> &nbsp; Delete
 						</Button>
 						<DialogClose>
 							<Button>
-								<i class='fa-solid fa-xmark'></i> &nbsp; Cancel
+								<i className='fa-solid fa-xmark'></i> &nbsp; Cancel
 							</Button>
 						</DialogClose>
 					</DialogFooter>

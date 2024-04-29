@@ -7,12 +7,17 @@ import DeleteProduct from './DeleteProduct';
 import Profile from './Profile';
 
 const ProductList = () => {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
 
 	const fetchProduct = async () => {
 		const response = await axios.get('http://localhost:2000/api/v1/products');
-		setData(response.data.data);
+
+		if (response.data.totalItems > 0) {
+			setData(response.data.data);
+		} else {
+			setData([]);
+		}
 		setLoading(false);
 	};
 
@@ -37,8 +42,8 @@ const ProductList = () => {
 								<th className='py-3 px-1 text-center'>Action</th>
 							</tr>
 						</thead>
-						{loading ? (
-							<tbody>
+						<tbody>
+							{loading ? (
 								<tr className='border-b'>
 									<td className='py-3 px-1 text-black text-center'>
 										<Skeleton className='h-6 bg-slate-300' />
@@ -50,10 +55,17 @@ const ProductList = () => {
 										<Skeleton className='h-6 bg-slate-300' />
 									</td>
 								</tr>
-							</tbody>
-						) : (
-							<tbody>
-								{data.map((product, index) => (
+							) : data.length <= 0 ? (
+								<tr>
+									<td
+										className='py-3 px-6 text-center bg-red-700 text-white font-bold'
+										colSpan='4'
+									>
+										Data Kosong
+									</td>
+								</tr>
+							) : (
+								data.map((product, index) => (
 									<tr
 										className='border-b'
 										key={product.id}
@@ -62,16 +74,19 @@ const ProductList = () => {
 										<td className='py-3 px-6 text-black font-bold'>{product.name}</td>
 										<td className='py-3 px-6 text-black'>{product.price}</td>
 										<td className='py-3 px-1 text-center'>
-											<EditProduct productId={product.id} />
+											<EditProduct
+												productId={product.id}
+												productName={product.name}
+											/>
 											<DeleteProduct
 												productId={product.id}
 												productName={product.name}
 											/>
 										</td>
 									</tr>
-								))}
-							</tbody>
-						)}
+								))
+							)}
+						</tbody>
 					</table>
 				</div>
 			</div>
