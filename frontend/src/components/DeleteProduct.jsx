@@ -7,7 +7,7 @@ const DeleteProduct = ({ productId, productName }) => {
 	const deleteProduct = async (productId) => {
 		const response = await axios.delete(`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`, {
 			withCredentials: false,
-			headers: { 'Content-Type': 'multipart/form-data' },
+			
 		});
 		toast.success(response.data.message, {
 			style: {
