@@ -11,10 +11,16 @@ const AddProduct = () => {
 	const saveProduct = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products', {
-				name: name,
-				price: Number(price),
-			});
+			const response = await axios.post(
+				'https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products',
+				{
+					name: name,
+					price: Number(price),
+				},
+				{
+					withCredentials: false,
+				}
+			);
 
 			toast.success(response.data.message, {
 				style: {

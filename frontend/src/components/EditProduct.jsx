@@ -21,10 +21,16 @@ const EditProduct = ({ productId, productName }) => {
 	const saveProduct = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.patch(`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`, {
-				name: name,
-				price: Number(price),
-			});
+			const response = await axios.patch(
+				`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`,
+				{
+					name: name,
+					price: Number(price),
+				},
+				{
+					withCredentials: false,
+				}
+			);
 
 			toast.success(response.data.message, {
 				style: {

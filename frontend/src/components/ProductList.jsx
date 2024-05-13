@@ -14,7 +14,9 @@ const ProductList = () => {
 	const [loading, setLoading] = useState(true);
 
 	const fetchProduct = async () => {
-		const response = await axios.get('https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products');
+		const response = await axios.get('https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products', {
+			withCredentials: false,
+		});
 
 		if (response.data.totalItems > 0) {
 			setData(response.data.data);

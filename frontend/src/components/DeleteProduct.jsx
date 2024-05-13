@@ -5,7 +5,9 @@ import toast from 'react-hot-toast';
 
 const DeleteProduct = ({ productId, productName }) => {
 	const deleteProduct = async (productId) => {
-		const response = await axios.delete(`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`);
+		const response = await axios.delete(`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`, {
+			withCredentials: false,
+		});
 		toast.success(response.data.message, {
 			style: {
 				backgroundColor: 'green',
