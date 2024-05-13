@@ -10,7 +10,7 @@ const EditProduct = ({ productId, productName }) => {
 
 	useEffect(() => {
 		const getProductById = async () => {
-			const response = await axios.get(`http://localhost:2000/api/v1/products/${productId}`);
+			const response = await axios.get(`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`);
 			setName(response.data.data.name);
 			setPrice(response.data.data.price);
 		};
@@ -21,7 +21,7 @@ const EditProduct = ({ productId, productName }) => {
 	const saveProduct = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.patch(`http://localhost:2000/api/v1/products/${productId}`, {
+			const response = await axios.patch(`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`, {
 				name: name,
 				price: Number(price),
 			});
@@ -56,8 +56,7 @@ const EditProduct = ({ productId, productName }) => {
 				<DialogTrigger asChild>
 					<Button
 						variant='outline'
-						className='bg-yellow-400 hover:bg-yellow-500 hover:text-white border border-slate-50 text-white font-bold py-2 px-4 rounded-lg'
-					>
+						className='px-4 py-2 font-bold text-white bg-yellow-400 border rounded-lg hover:bg-yellow-500 hover:text-white border-slate-50'>
 						<i className='fa-solid fa-pen-to-square'></i> &nbsp; Edit Product
 					</Button>
 				</DialogTrigger>
@@ -65,13 +64,12 @@ const EditProduct = ({ productId, productName }) => {
 					<DialogHeader>
 						<DialogTitle>Edit Product</DialogTitle>
 						<DialogDescription>
-							Make change for your <span className='font-bold size-2 text-red-700'>{productName}</span>. Click save when you're done.
+							Make change for your <span className='font-bold text-red-700 size-2'>{productName}</span>. Click save when you're done.
 						</DialogDescription>
 					</DialogHeader>
 					<form
 						className='my-5'
-						onSubmit={saveProduct}
-					>
+						onSubmit={saveProduct}>
 						<div className='flex flex-col'>
 							<div>
 								<label className='font-bold text-white'>Product Name</label>
@@ -79,7 +77,7 @@ const EditProduct = ({ productId, productName }) => {
 									value={name}
 									onChange={(e) => setName(e.target.value)}
 									type='text'
-									className='w-full py-3 mt-1 border border-slate-600 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover: shadow'
+									className='w-full px-3 py-3 mt-1 border rounded-lg shadow border-slate-600 focus:outline-none focus:border-slate-500 hover:'
 									placeholder='Product Name'
 								/>
 							</div>
@@ -89,7 +87,7 @@ const EditProduct = ({ productId, productName }) => {
 									value={price}
 									onChange={(e) => setPrice(e.target.value)}
 									type='number'
-									className='w-full py-3 mt-1 border border-slate-600 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover: shadow'
+									className='w-full px-3 py-3 mt-1 border rounded-lg shadow border-slate-600 focus:outline-none focus:border-slate-500 hover:'
 									placeholder='Product Price'
 								/>
 							</div>
@@ -98,8 +96,7 @@ const EditProduct = ({ productId, productName }) => {
 							<DialogClose asChild>
 								<button
 									type='submit'
-									className='w-full py-3 font-bold text-white bg-black hover:bg-slate-900 rounded-lg border-slate-500 hover:shadow'
-								>
+									className='w-full py-3 font-bold text-white bg-black rounded-lg hover:bg-slate-900 border-slate-500 hover:shadow'>
 									<i className='fa-solid fa-floppy-disk'></i> &nbsp; Save
 								</button>
 							</DialogClose>

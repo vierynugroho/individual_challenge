@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 
 const DeleteProduct = ({ productId, productName }) => {
 	const deleteProduct = async (productId) => {
-		const response = await axios.delete(`http://localhost:2000/api/v1/products/${productId}`);
+		const response = await axios.delete(`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`);
 		toast.success(response.data.message, {
 			style: {
 				backgroundColor: 'green',
@@ -24,8 +24,7 @@ const DeleteProduct = ({ productId, productName }) => {
 				<DialogTrigger asChild>
 					<Button
 						variant='outline'
-						className='bg-red-600 hover:bg-red-700 hover:text-white border border-slate-50 text-white font-bold py-2 px-4 rounded-lg'
-					>
+						className='px-4 py-2 font-bold text-white bg-red-600 border rounded-lg hover:bg-red-700 hover:text-white border-slate-50'>
 						<i className='fa-solid fa-trash'></i> &nbsp; Delete Product
 					</Button>
 				</DialogTrigger>
@@ -34,13 +33,12 @@ const DeleteProduct = ({ productId, productName }) => {
 						<DialogTitle>Delete Product</DialogTitle>
 					</DialogHeader>
 					<DialogDescription>
-						Are you sure delete <span className='font-bold size-2 text-red-700'>{productName}</span> ?
+						Are you sure delete <span className='font-bold text-red-700 size-2'>{productName}</span> ?
 					</DialogDescription>
 					<DialogFooter>
 						<Button
 							onClick={() => deleteProduct(productId)}
-							className='bg-red-700'
-						>
+							className='bg-red-700'>
 							<i className='fa-solid fa-check'></i> &nbsp; Delete
 						</Button>
 						<DialogClose>

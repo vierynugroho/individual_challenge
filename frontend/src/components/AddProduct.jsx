@@ -11,7 +11,7 @@ const AddProduct = () => {
 	const saveProduct = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('http://localhost:2000/api/v1/products', {
+			const response = await axios.post('https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products', {
 				name: name,
 				price: Number(price),
 			});
@@ -48,8 +48,7 @@ const AddProduct = () => {
 				<DialogTrigger asChild>
 					<Button
 						variant='outline'
-						className='bg-black hover:bg-slate-900 hover:text-white border border-slate-50 text-white font-bold py-2 px-4 rounded-lg'
-					>
+						className='px-4 py-2 font-bold text-white bg-black border rounded-lg hover:bg-slate-900 hover:text-white border-slate-50'>
 						<i className='fa-solid fa-plus'></i> &nbsp; Add Product
 					</Button>
 				</DialogTrigger>
@@ -60,8 +59,7 @@ const AddProduct = () => {
 					</DialogHeader>
 					<form
 						className='my-5'
-						onSubmit={saveProduct}
-					>
+						onSubmit={saveProduct}>
 						<div className='flex flex-col'>
 							<div>
 								<label className='font-bold text-white'>Product Name</label>
@@ -69,7 +67,7 @@ const AddProduct = () => {
 									value={name}
 									onChange={(e) => setName(e.target.value)}
 									type='text'
-									className='w-full py-3 mt-1 border border-slate-600 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover: shadow'
+									className='w-full px-3 py-3 mt-1 border rounded-lg shadow border-slate-600 focus:outline-none focus:border-slate-500 hover:'
 									placeholder='Product Name'
 								/>
 							</div>
@@ -79,7 +77,7 @@ const AddProduct = () => {
 									value={price}
 									onChange={(e) => setPrice(e.target.value)}
 									type='number'
-									className='w-full py-3 mt-1 border border-slate-600 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover: shadow'
+									className='w-full px-3 py-3 mt-1 border rounded-lg shadow border-slate-600 focus:outline-none focus:border-slate-500 hover:'
 									placeholder='Product Price'
 								/>
 							</div>
@@ -88,8 +86,7 @@ const AddProduct = () => {
 							<DialogClose asChild>
 								<button
 									type='submit'
-									className='w-full py-3 font-bold text-white bg-black hover:bg-slate-900 rounded-lg border-slate-500 hover:shadow'
-								>
+									className='w-full py-3 font-bold text-white bg-black rounded-lg hover:bg-slate-900 border-slate-500 hover:shadow'>
 									<i className='fa-solid fa-floppy-disk'></i> &nbsp; Save
 								</button>
 							</DialogClose>
