@@ -2,12 +2,12 @@
 	"name": "backend",
 	"version": "1.0.0",
 	"description": "backend - individual challenge chapter 6 by viery",
-	"main": "server.js",
+	"main": "index.js",
 	"engines": {
 		"node": "18.x"
 	},
 	"scripts": {
-		"dev": "node server.js && npx prisma migrate dev",
+		"dev": "node index.js && npx prisma migrate dev",
 		"migrate": "npx prisma migrate dev",
 		"migrate-refresh": "npx prisma migrate reset"
 	},
