@@ -7,9 +7,10 @@
 		"node": "18.x"
 	},
 	"scripts": {
-		"dev": "node index.js && npx prisma migrate dev",
+		"dev": "node index.js",
 		"migrate": "npx prisma migrate dev",
-		"migrate-refresh": "npx prisma migrate reset"
+		"migrate-refresh": "npx prisma migrate reset",
+		"vercel-build": "prisma generate && prisma migrate deploy && next build"
 	},
 	"keywords": [
 		"backend",
