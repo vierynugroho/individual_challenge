@@ -16,7 +16,7 @@ const ProductList = () => {
 	const fetchProduct = async () => {
 		const response = await axios.get('https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products', {
 			withCredentials: false,
-			headers: { 'Content-Type': 'multipart/form-data' },
+			
 		});
 
 		if (response.data.totalItems > 0) {
