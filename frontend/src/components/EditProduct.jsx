@@ -29,6 +29,7 @@ const EditProduct = ({ productId, productName }) => {
 				},
 				{
 					withCredentials: false,
+					headers: { 'Content-Type': 'multipart/form-data' },
 				}
 			);
 

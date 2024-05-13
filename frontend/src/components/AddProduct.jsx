@@ -19,6 +19,7 @@ const AddProduct = () => {
 				},
 				{
 					withCredentials: false,
+					headers: { 'Content-Type': 'multipart/form-data' },
 				}
 			);
 
