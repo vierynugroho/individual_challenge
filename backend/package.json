@@ -3,8 +3,11 @@
 	"version": "1.0.0",
 	"description": "backend - individual challenge chapter 6 by viery",
 	"main": "server.js",
+	"engines": {
+		"node": "18.x"
+	},
 	"scripts": {
-		"dev": "nodemon server.js",
+		"dev": "node server.js && npx prisma migrate dev",
 		"migrate": "npx prisma migrate dev",
 		"migrate-refresh": "npx prisma migrate reset"
 	},

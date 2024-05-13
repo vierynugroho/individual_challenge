@@ -6,7 +6,10 @@ import EditProduct from './EditProduct';
 import DeleteProduct from './DeleteProduct';
 import Profile from './Profile';
 
+import useSWR, { useSWRConfig } from 'swr';
+
 const ProductList = () => {
+	//! old
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(true);
 
@@ -24,6 +27,17 @@ const ProductList = () => {
 	useEffect(() => {
 		fetchProduct();
 	}, [data]);
+
+	//! fix bug
+	// const { mutate } = useSWRConfig();
+
+	// const fetchProduct = async () => {
+	// 	const response = await axios.get('http://localhost:2000/api/v1/products');
+
+	// 	return { data: response.data.data, totalItems: response.data.totalItems };
+	// };
+
+	// const { data, error, isLoading } = useSWR('products', fetchProduct);
 
 	return (
 		<div className='flex flex-col mt-5 container'>
