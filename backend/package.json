@@ -10,7 +10,7 @@
 		"dev": "node index.js",
 		"migrate": "npx prisma migrate dev",
 		"migrate-refresh": "npx prisma migrate reset",
-		"vercel-build": "prisma generate && prisma migrate deploy && npm run build"
+		"vercel-build": "prisma generate && prisma migrate deploy"
 	},
 	"keywords": [
 		"backend",
