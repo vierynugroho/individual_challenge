@@ -10,7 +10,7 @@ const EditProduct = ({ productId, productName }) => {
 
 	useEffect(() => {
 		const getProductById = async () => {
-			const response = await axios.get(`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`);
+			const response = await axios.get(`https://individual-challenge-xek4.vercel.app/api/v1/products/${productId}`);
 			setName(response.data.data.name);
 			setPrice(response.data.data.price);
 		};
@@ -22,7 +22,7 @@ const EditProduct = ({ productId, productName }) => {
 		e.preventDefault();
 		try {
 			const response = await axios.patch(
-				`https://individual-challenge-backend-go63voh20-viery-nugrohos-projects.vercel.app/api/v1/products/${productId}`,
+				`https://individual-challenge-xek4.vercel.app/api/v1/products/${productId}`,
 				{
 					name: name,
 					price: Number(price),
